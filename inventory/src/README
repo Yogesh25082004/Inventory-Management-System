@@ -1,0 +1,109 @@
+Inventory Management System – Backend
+
+A simple backend application for managing products and inventory, built using Spring Boot and PostgreSQL.
+Designed for college projects, learning REST APIs, and full-stack integration with React.
+
+Tech Stack
+
+    Backend
+    Java 20
+    Spring Boot
+    Spring Data JPA
+    Hibernate
+    PostgreSQL
+    Maven
+    Tools
+
+Postman (API testing)
+pgAdmin / psql
+IntelliJ IDEA
+
+Project Structure
+==================
+com.inventory
+ ├── controller
+ ├── service
+ │    └── impl
+ ├── repository
+ ├── entity
+ ├── exception
+ └── InventoryApplication.java
+
+Database Schema
+================
+  Product Table
+    Column	      Type
+    id	          BIGSERIAL (PK)
+    product_name	VARCHAR
+    category	  VARCHAR
+    quantity	  INT
+    price	      DOUBLE
+
+  Users Table
+    Column	      Type
+    id	          BIGSERIAL (PK)
+    username	  VARCHAR
+    password	  VARCHAR
+    role	      VARCHAR (optional)
+
+API Endpoints
+===============
+  Product APIs
+    Method	 Endpoint	              Description
+    POST	/api/products	          Add product
+    GET	    /api/products	          Get all products
+    PUT	    /api/products/{id}	      Update product
+    DELETE	/api/products/{id}	      Delete product
+    GET	    /api/products/low-stock	  Low stock products
+
+  Auth API
+    Method	Endpoint	              Description
+    POST	/api/auth/login	          User login
+
+  Sample JSON (Add Product)
+{
+  "productName": "Monitor",
+  "category": "Electronics",
+  "quantity": 5,
+  "price": 12000
+}
+
+Exception Handling
+====================
+
+Custom ResourceNotFoundException
+Global exception handling using @RestControllerAdvice
+Returns proper HTTP status codes (404, 400)
+
+
+How to Run the Project
+=======================
+
+Clone the repository
+Create PostgreSQL database
+Update application.properties
+
+Run:
+mvn spring-boot:run
+
+Server runs on:
+http://localhost:9999
+
+Testing
+========
+
+All APIs tested using Postman
+CRUD operations verified
+Database persistence verified using PostgreSQL
+
+Future Enhancements
+=====================
+JWT authentication
+Role-based access
+Pagination & sorting
+Frontend dashboard integration
+
+Author
+
+Yogesh S
+Backend Developer – Spring Boot
