@@ -1,0 +1,8 @@
+# Frontend
+imsfrontend/node_modules/
+imsfrontend/dist/
+imsfrontend/build/
+.env
+
+# OS junk
+.DS_Store
