@@ -28,6 +28,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Product getProductById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+    }
+
+    @Override
     public Product updateProduct(Long id, Product product) {
         Product existing = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found"));

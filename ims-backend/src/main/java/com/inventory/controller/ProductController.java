@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"})
 public class ProductController {
 
     private final ProductService service;
@@ -21,6 +21,11 @@ public class ProductController {
     @GetMapping
     public List<Product> getAll() {
         return service.getAllProducts();
+    }
+
+    @GetMapping("/{id}")
+    public Product getById(@PathVariable Long id) {
+        return service.getProductById(id);
     }
 
     @PostMapping
